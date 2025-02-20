@@ -79,6 +79,7 @@ public class sudoku {
                 System.out.println("Hai vinto la partita! Nessun errore trovato.");
             } else {
                 System.out.println("Ci sono errori nella griglia di Sudoku.");
+
             }
         }
     }
