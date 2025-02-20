@@ -7,7 +7,6 @@ import java.util.*;
 public class sudoku {
 
         public static boolean verificaVittoria(int[][] board) {
-
             return true;
         }
 
