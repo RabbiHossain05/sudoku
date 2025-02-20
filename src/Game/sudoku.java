@@ -28,7 +28,18 @@ public class sudoku {
     }
 
         private static boolean checkQuadrati(int[][] board) {
-
+            for (int row = 0; row < 9; row += 3) {
+                for (int col = 0; col < 9; col += 3) {
+                    int[] quadrato = new int[9];
+                    int index = 0;
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            quadrato[index++] = board[row + i][col + j];
+                        }
+                    }
+                    if (!checkUnicita(quadrato)) return false;
+                }
+            }
             return true;
         }
 
