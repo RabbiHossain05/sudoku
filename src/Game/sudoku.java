@@ -53,7 +53,33 @@ public class sudoku {
         }
 
         public static void main(String[] args) {
+            if (args.length != 1) {
+                System.out.println("Utilizzo: java SudokuChecker <file_path>");
+                return;
+            }
 
+            int[][] board = new int[9][9];
+            try (Scanner scanner = new Scanner(new File(args[0]))) {
+                for (int i = 0; i < 9; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        if (scanner.hasNextInt()) {
+                            board[i][j] = scanner.nextInt();
+                        } else {
+                            System.out.println("Formato file non valido.");
+                            return;
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("File non trovato: " + args[0]);
+                return;
+            }
+
+            if (verificaVittoria(board)) {
+                System.out.println("Hai vinto la partita! Nessun errore trovato.");
+            } else {
+                System.out.println("Ci sono errori nella griglia di Sudoku.");
+            }
         }
     }
 
