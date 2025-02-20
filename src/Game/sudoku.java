@@ -44,7 +44,11 @@ public class sudoku {
         }
 
         private static boolean checkUnicita(int[] numeri) {
-
+            boolean[] visti = new boolean[9];
+            for (int num : numeri) {
+                if (num < 1 || num > 9 || visti[num - 1]) return false;
+                visti[num - 1] = true;
+            }
             return true;
         }
 
