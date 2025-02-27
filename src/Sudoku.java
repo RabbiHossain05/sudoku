@@ -43,15 +43,28 @@ public class Sudoku {
             grid[7][5] = "9";
 
 
-    }    public void viewGrid() {
+    }
 
-
-        for (int i = 0; i < SIZE; i++) {
-            if(grid[i] == grid[0])
-            {System.out.print( " | ");}
-            for (int j = 0; j < SIZE; j++) {
+    public void viewGrid() {
+            for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
                 System.out.print(grid[i][j] + " | ");
-            }
+                }
             System.out.println();
+            }
         }
-        }}
+
+    public void insertNumber(String numberChosenByUser, int xCoordinate, int yCoordinate) {
+        grid[yCoordinate][xCoordinate] = numberChosenByUser;
+    }
+
+    public void removeNumber(int xCoordinate, int yCoordinate) {
+        grid[yCoordinate][xCoordinate] = " ";
+    }
+
+    public void restart(){
+            clearGrid();
+            setDefaultValues();
+            viewGrid();
+    }
+}
